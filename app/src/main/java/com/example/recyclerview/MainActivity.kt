@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var newsArrayList:ArrayList<News>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
 
         myRecyclerView=findViewById(R.id.recyclerView)
@@ -38,13 +37,13 @@ class MainActivity : AppCompatActivity() {
         )
 
         // to set hav bhav of items inside recycler view, vertically schrolling ,horizontally or uniform grid etc
-        myRecyclerView.layoutManager = LinearLayoutManager(this)
+        myRecyclerView.layoutManager = LinearLayoutManager(this) // to connect recycler view we do that
         newsArrayList = arrayListOf<News>()
 
         for(index in newsArrayList.indices){
-            val news = News(newsHeadingArray[index], newsImageArray[index])
-            newsArrayList.add(news) // adding every data for each index
+            val eachNews = News(newsHeadingArray[index], newsImageArray[index])
+            newsArrayList.add(eachNews) // adding every data for each index in the arraylist
         }
-        myRecyclerView.adapter = MyAdapter(newsArrayList, this)
+        myRecyclerView.adapter = MyAdapter(newsArrayList,this)
         }
     }
